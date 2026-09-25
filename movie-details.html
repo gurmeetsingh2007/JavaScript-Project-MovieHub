@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Details</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="min-h-screen bg-zinc-950 text-zinc-100">
+
+
+    <!-- NAVBAR -->
+
+    <nav class="sticky top-0 z-50
+                border-b border-zinc-800
+                bg-zinc-950/90
+                backdrop-blur-xl">
+
+        <div class="max-w-7xl mx-auto
+                    px-5 h-16
+                    flex items-center
+                    justify-between">
+
+            <a href="index.html"
+               class="flex items-center gap-2">
+
+                <span class="w-8 h-8
+                             flex items-center
+                             justify-center
+                             rounded-md
+                             bg-amber-400
+                             text-black
+                             font-black">
+                    M
+                </span>
+
+                <span class="text-xl font-bold">
+                    Movie<span class="text-amber-400">
+                        Hub
+                    </span>
+                </span>
+
+            </a>
+
+
+            <a href="index.html"
+               class="text-sm text-zinc-400
+                      hover:text-amber-400
+                      transition">
+
+                ← Back to Movies
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CONTENT -->
+
+    <main class="max-w-7xl mx-auto
+                 px-5 py-10 md:py-14">
+
+        <p class="text-xs font-bold
+                  tracking-[0.2em]
+                  text-amber-400 mb-3">
+
+            MOVIE DETAILS
+
+        </p>
+
+        <h1 class="text-3xl md:text-4xl
+                   font-black mb-10">
+
+            Movie Details
+
+        </h1>
+
+
+        <!-- KEEP YOUR ID -->
+        <div id="movie-detail"></div>
+
+    </main>
+
+    <footer class="border-t border-zinc-800">
+
+    <div class="max-w-7xl mx-auto
+                px-5 py-7
+                flex flex-col
+                sm:flex-row
+                items-center
+                justify-between
+                gap-3">
+
+        <p class="text-sm text-zinc-500">
+
+            © 2026 MovieHub
+
+        </p>
+
+        <p class="text-sm text-zinc-600">
+
+            Made by Gurmeet Singh
+
+        </p>
+
+    </div>
+
+</footer>
+
+    <script src="movie-details.js"></script>
+
+</body>
+
+</html>
