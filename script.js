@@ -17,36 +17,44 @@ movieForm.addEventListener("submit", (e) => {
 
 async function searchMovies(movieName) {
     movieHub.innerHTML = `
-    <div class="col-span-full flex justify-center py-16">
-        <span class="w-10 h-10
-                     border-4 border-zinc-700
-                     border-t-amber-400
-                     rounded-full
-                     animate-spin">
-        </span>
-    </div>
-`;
-    let response = await fetch(`https://www.omdbapi.com/?apikey=f35226b4&s=${encodeURIComponent(movieName)}`)
-    let data = await response.json()
-    console.log(data);
-    if (data.Response === "True") {
-        displayMovies(data.Search)
-    } else {
+        <div class="col-span-full flex justify-center py-16">
+            <span class="w-10 h-10 border-4 border-zinc-700
+                         border-t-amber-400 rounded-full animate-spin">
+            </span>
+        </div>
+    `;
+
+    try {
+        const response = await fetch(
+            `https://www.omdbapi.com/?apikey=f35226b4&s=${encodeURIComponent(movieName)}`
+        );
+
+        const data = await response.json();
+        console.log("OMDb response:", data);
+
+        if (data.Response === "True") {
+            displayMovies(data.Search);
+        } else {
+            movieHub.innerHTML = `
+                <p class="col-span-full text-zinc-400">
+                    ${data.Error || "Unable to find movies."}
+                </p>
+            `;
+        }
+    } catch (error) {
+        console.error("Movie search failed:", error);
+
         movieHub.innerHTML = `
-    <div class="col-span-full py-16 text-center">
-
-        <p class="text-zinc-500 text-lg">
-            ${data.Error}
-        </p>
-
-        <p class="text-zinc-600 text-sm mt-2">
-            Try searching for another movie.
-        </p>
-
-    </div>
-`;
+            <div class="col-span-full text-center py-12">
+                <p class="text-red-400 font-semibold">
+                    Couldn't load movies.
+                </p>
+                <p class="text-zinc-500 text-sm mt-2">
+                    Check your internet connection and try again.
+                </p>
+            </div>
+        `;
     }
-
 }
 
 function displayMovies(movies) {
