@@ -1,5 +1,5 @@
 
-API = "http://www.omdbapi.com/?apikey=f35226b4&s=avengers";
+API = "https://www.omdbapi.com/?apikey=f35226b4&s=avengers";
 
 const movieForm = document.querySelector("#movieForm");
 const movieInput = document.querySelector("#movieInput");
@@ -26,7 +26,7 @@ async function searchMovies(movieName) {
         </span>
     </div>
 `;
-    let response = await fetch(`http://www.omdbapi.com/?apikey=f35226b4&s=${encodeURIComponent(movieName)}`)
+    let response = await fetch(`https://www.omdbapi.com/?apikey=f35226b4&s=${encodeURIComponent(movieName)}`)
     let data = await response.json()
     console.log(data);
     if (data.Response === "True") {
